@@ -1,136 +1,224 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vardelume - Agentes Financieros Autónomos</title>
+  <title>Vardelume | Agentes de IA Financieros y Auditoría Jurídica Bilingüe</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'DM Sans', sans-serif; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glow-bg {
+      background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.18) 0%, rgba(15, 23, 42, 0) 70%);
+    }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
 
-  <!-- Navbar -->
-  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+  <!-- Navegación -->
+  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-500/30">V</div>
-        <span class="font-bold text-lg tracking-tight">Vardelume</span>
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-indigo-500/25">
+          V
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Vardelume</span>
       </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-400">
-        <a href="#features" class="hover:text-white transition">Funcionalidades</a>
-        <a href="#dashboard" class="hover:text-white transition">Plataforma</a>
-        <a href="#pricing" class="hover:text-white transition">Precios</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+        <a href="#capacidades" class="hover:text-white transition">Capacidades</a>
+        <a href="#juridico" class="hover:text-white transition">Revisión Jurídica</a>
+        <a href="#precios" class="hover:text-white transition">Planes</a>
       </nav>
-      <div class="flex items-center gap-3">
-        <a href="#pricing" class="text-sm bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2 rounded-lg transition shadow-md shadow-indigo-600/20">Comenzar</a>
+      <div class="flex items-center gap-4">
+        <a href="#precios" class="text-sm font-medium px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition shadow-md shadow-indigo-600/30">
+          Comenzar
+        </a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <main class="flex-1">
-    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
-      <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-950/60 border border-indigo-800/50 rounded-full mb-6">
-        Inteligencia Financiera Autónoma
-      </span>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-3xl mx-auto leading-tight">
-        Agentes de IA para auditar, analizar y escalar tus finanzas.
-      </h1>
-      <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
-        Automatiza la revisión de contratos, análisis de flujos de caja y detección de riesgos en tiempo real con agentes entrenados para operaciones de alto rigor.
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#pricing" class="w-full sm:w-auto px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition shadow-lg shadow-indigo-600/30">Probar Demo</a>
-        <a href="#features" class="w-full sm:w-auto px-6 py-3 rounded-lg border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-300 font-semibold transition">Ver capacidades</a>
-      </div>
-    </section>
-
-    <!-- Metrics -->
-    <section class="border-y border-slate-800/80 bg-slate-900/30 py-12">
-      <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl font-bold text-white">99.8%</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Precisión de Auditoría</div>
+  <main class="flex-grow">
+    <section class="relative pt-24 pb-20 px-6 glow-bg text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-950/40 text-indigo-400 text-xs font-semibold tracking-wide uppercase mb-8">
+          <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+          Inteligencia Financiera & Compliance Bilingüe
         </div>
-        <div>
-          <div class="text-3xl font-bold text-indigo-400">&lt; 3 seg</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Respuesta de Agente</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-white">SOC-2</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Cumplimiento y Cifrado</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-indigo-400">24/7</div>
-          <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Monitoreo Activo</div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Agentes de IA para auditar, traducir y <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400">blindar tus contratos</span>.
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          Automatiza la auditoría de flujos, detección de riesgos y traducción jurídica de alta precisión (EN ⇄ ES) con agentes entrenados para operaciones transfronterizas de alto rigor.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#precios" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition">
+            Ver Planes de Suscripción
+          </a>
+          <a href="#juridico" class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-semibold transition">
+            Auditoría Legal EN-ES
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="max-w-5xl mx-auto px-6 py-20">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-white">Planes adaptados a tu escala</h2>
-        <p class="text-slate-400 mt-2">Comienza gratis o despliega agentes de grado institucional.</p>
+    <!-- Capacidades / Diferenciadores -->
+    <section id="capacidades" class="py-20 border-t border-slate-850 bg-slate-900/30">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-white tracking-tight">Rigor institucional para finanzas complejas</h2>
+          <p class="mt-4 text-slate-400">Arquitectura diseñada para auditores, departamentos legales y fondos de inversión transfronterizos.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+            <div class="h-12 w-12 rounded-xl bg-indigo-950/80 border border-indigo-700/40 flex items-center justify-center text-indigo-400 font-bold mb-6">01</div>
+            <h3 class="text-xl font-bold text-white mb-3">Auditoría de Balances y Flujos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Detección de anomalías contables, proyección de riesgos de tesorería e inspección profunda en cuestión de segundos.</p>
+          </div>
+          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+            <div class="h-12 w-12 rounded-xl bg-cyan-950/80 border border-cyan-700/40 flex items-center justify-center text-cyan-400 font-bold mb-6">02</div>
+            <h3 class="text-xl font-bold text-white mb-3">Traducción Jurídica EN ⇄ ES</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Interpretación contractual bilingüe con estricta correspondencia entre el Common Law anglosajón y el Derecho Continental.</p>
+          </div>
+          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+            <div class="h-12 w-12 rounded-xl bg-emerald-950/80 border border-emerald-700/40 flex items-center justify-center text-emerald-400 font-bold mb-6">03</div>
+            <h3 class="text-xl font-bold text-white mb-3">Compliance & Seguridad</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Modelos con retención de datos configurable, trazabilidad de cambios y estándares de confidencialidad financiera.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Starter -->
-        <div class="border border-slate-800 bg-slate-900/40 p-8 rounded-2xl flex flex-col justify-between">
-          <div>
-            <h3 class="text-lg font-bold text-white">Starter</h3>
-            <p class="text-sm text-slate-400 mt-1">Para profesionales y pequeños equipos.</p>
-            <div class="mt-6 text-3xl font-extrabold text-white">$29 <span class="text-sm font-normal text-slate-400">/ mes</span></div>
-            <ul class="mt-6 space-y-3 text-sm text-slate-300">
-              <li>✓ Hasta 2 agentes financieros</li>
-              <li>✓ Análisis de hasta 50 documentos/mes</li>
-              <li>✓ Historial de auditoría 30 días</li>
-            </ul>
+    <!-- Sección Especializada en Traducción Jurídica -->
+    <section id="juridico" class="py-20 border-t border-slate-800/80 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-indigo-400 text-sm font-semibold tracking-wider uppercase">Ventaja Transfronteriza</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2 leading-tight">
+            Elimina el riesgo de discrepancias contractuales entre EE.UU. y Latinoamérica.
+          </h2>
+          <p class="mt-6 text-slate-400 leading-relaxed">
+            Las herramientas genéricas suelen traducir términos jurídicos de forma literal e inexacta. Vardelume audita cláusulas de indemnización, representaciones y garantías (*representations & warranties*), limitación de responsabilidad y acuerdos de confidencialidad garantizando equivalencia jurídica exacta.
+          </p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Auditoría paralela de cláusulas críticas en inglés y español.</li>
+            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Detección de ambigüedades en penalidades y plazos de pago.</li>
+            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Trazabilidad para dictámenes y aprobaciones legales.</li>
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/40 font-mono text-xs text-slate-400 space-y-4">
+          <div class="text-slate-500">// Protocolo de auditoría contractual bilingüe</div>
+          <div class="p-4 rounded-lg bg-slate-950/80 border border-slate-800">
+            <div class="text-indigo-400 font-semibold mb-1">EN (Source Clause):</div>
+            <div>"Party A agrees to indemnify, defend, and hold harmless Party B from any liquidated damages..."</div>
           </div>
-          <button class="mt-8 w-full py-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">Elegir Starter</button>
+          <div class="p-4 rounded-lg bg-slate-950/80 border border-slate-800">
+            <div class="text-cyan-400 font-semibold mb-1">ES (Validación Jurídica):</div>
+            <div>"La Parte A se compromete a mantener indemne a la Parte B frente a cláusulas penales liquidadas..."</div>
+          </div>
+          <div class="text-emerald-400 flex items-center gap-2">
+            <span>●</span> Compliance Score: 99.8% (Equivalencia doctrinal verificada)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Planes de Suscripción -->
+    <section id="precios" class="py-24 border-t border-slate-800/80 bg-slate-900/40">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-indigo-400 text-xs font-semibold uppercase tracking-wider">Suscripciones Recurrentes</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Planes diseñados para cada etapa operativa</h2>
+          <p class="mt-4 text-slate-400 text-sm">Cobro mensual automatizado en USD a través de PayPal con facturación transparente.</p>
         </div>
 
-        <!-- Pro -->
-        <div class="border-2 border-indigo-500 bg-slate-900/80 p-8 rounded-2xl flex flex-col justify-between relative shadow-xl shadow-indigo-950/50">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full">Más Popular</div>
-          <div>
-            <h3 class="text-lg font-bold text-white">Professional</h3>
-            <p class="text-sm text-slate-400 mt-1">Para empresas con alto flujo de operaciones.</p>
-            <div class="mt-6 text-3xl font-extrabold text-white">$99 <span class="text-sm font-normal text-slate-400">/ mes</span></div>
-            <ul class="mt-6 space-y-3 text-sm text-slate-300">
-              <li>✓ Agentes ilimitados</li>
-              <li>✓ Extracción inteligente de reportes</li>
-              <li>✓ Integración API & Webhooks</li>
-              <li>✓ Soporte prioritario</li>
-            </ul>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Plan Starter -->
+          <div class="border border-slate-800 bg-slate-950/60 p-8 rounded-2xl flex flex-col justify-between hover:border-slate-700 transition">
+            <div>
+              <h3 class="text-lg font-bold text-white">Starter</h3>
+              <p class="text-sm text-slate-400 mt-1">Para profesionales independientes y consultores.</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white">$29</span>
+                <span class="text-sm text-slate-400">/ mes</span>
+              </div>
+              <ul class="mt-8 space-y-3.5 text-sm text-slate-300">
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Hasta 2 agentes financieros activos</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Análisis de hasta 50 documentos/mes</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Revisión jurídica básica EN-ES</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Historial de auditoría por 30 días</li>
+              </ul>
+            </div>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4W3824526D003303LNLA4DVY" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">
+              Elegir Starter ($29/mes)
+            </a>
           </div>
-          <button class="mt-8 w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition shadow-md shadow-indigo-600/30">Comenzar Prueba</button>
-        </div>
 
-        <!-- Enterprise -->
-        <div class="border border-slate-800 bg-slate-900/40 p-8 rounded-2xl flex flex-col justify-between">
-          <div>
-            <h3 class="text-lg font-bold text-white">Enterprise</h3>
-            <p class="text-sm text-slate-400 mt-1">Seguridad avanzada y modelos dedicados.</p>
-            <div class="mt-6 text-3xl font-extrabold text-white">$299 <span class="text-sm font-normal text-slate-400">/ mes</span></div>
-            <ul class="mt-6 space-y-3 text-sm text-slate-300">
-              <li>✓ LLMs dedicados en infraestructura privada</li>
-              <li>✓ Retención de datos personalizada</li>
-              <li>✓ SLA 99.9% de disponibilidad</li>
-            </ul>
+          <!-- Plan Professional (Destacado) -->
+          <div class="border-2 border-indigo-500 bg-slate-900/90 p-8 rounded-2xl flex flex-col justify-between shadow-2xl shadow-indigo-500/10 relative transform lg:-translate-y-2">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-600 rounded-full text-[11px] font-bold text-white uppercase tracking-wider">
+              Recomendado
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">Professional</h3>
+              <p class="text-sm text-slate-400 mt-1">Para empresas, firmas legales y fondos con flujo continuo.</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white">$99</span>
+                <span class="text-sm text-slate-400">/ mes</span>
+              </div>
+              <ul class="mt-8 space-y-3.5 text-sm text-slate-200">
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Agentes financieros ilimitados</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Auditoría y traducción contractual avanzada</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Extracción inteligente de reportes</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Integración API y Webhooks</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Soporte prioritario</li>
+              </ul>
+            </div>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5XS72719SM172170JNLA4JNI" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition shadow-lg shadow-indigo-600/30">
+              Comenzar Professional ($99/mes)
+            </a>
           </div>
-          <button class="mt-8 w-full py-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">Contactar Ventas</button>
+
+          <!-- Plan Enterprise -->
+          <div class="border border-slate-800 bg-slate-950/60 p-8 rounded-2xl flex flex-col justify-between hover:border-slate-700 transition">
+            <div>
+              <h3 class="text-lg font-bold text-white">Enterprise</h3>
+              <p class="text-sm text-slate-400 mt-1">Para corporaciones que exigen infraestructura dedicada.</p>
+              <div class="mt-6 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white">$299</span>
+                <span class="text-sm text-slate-400">/ mes</span>
+              </div>
+              <ul class="mt-8 space-y-3.5 text-sm text-slate-300">
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Todo lo incluido en Professional</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Modelos e infraestructura privada</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Políticas de retención de datos personalizadas</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> SLA de disponibilidad 99.9%</li>
+                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Onboarding asistido con compliance legal</li>
+              </ul>
+            </div>
+            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-94M747035N773125ENLA4NDI" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">
+              Elegir Enterprise ($299/mes)
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 bg-slate-950 py-8 text-center text-xs text-slate-500">
-    <p>© 2026 Vardelume. Todos los derechos reservados.</p>
+  <!-- Pie de página -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-10 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-400">Vardelume</span> &copy; 2026. Todos los derechos reservados.
+      </div>
+      <div class="text-slate-600">
+        Pagos seguros procesados internacionalmente por PayPal.
+      </div>
+    </div>
   </footer>
 
 </body>
