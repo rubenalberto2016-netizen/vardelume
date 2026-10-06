@@ -1,225 +1,607 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vardelume | Agentes de IA Financieros y Auditoría Jurídica Bilingüe</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Vardelume | Legaltech & Cross-Border B2B Infrastructure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .glow-bg {
-      background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.18) 0%, rgba(15, 23, 42, 0) 70%);
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface-border: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #38bdf8;
+      --gold: #f59e0b;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--surface-border);
+      background-color: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 4.5rem 1.5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background-color: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(to right, #fff, #9ca3af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto 5rem;
+      padding: 0 1.5rem;
+    }
+
+    /* DIAGNOSTIC WIZARD CARD */
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .wizard-header {
+      border-bottom: 1px solid var(--surface-border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .step-indicator {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-step h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-step p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .option-card {
+      border: 1px solid var(--surface-border);
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .option-card:hover {
+      border-color: var(--primary);
+      background-color: rgba(37, 99, 235, 0.05);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background-color: rgba(56, 189, 248, 0.1);
+    }
+
+    .option-card strong {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .option-card span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--surface-border);
+      color: var(--text-muted);
+    }
+
+    .btn-outline:hover {
+      color: var(--text-main);
+      border-color: var(--text-muted);
+    }
+
+    /* RESULT SUMMARY */
+    .summary-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.95rem;
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    /* PLANS & CHECKOUT */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .plan-card {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-card.highlight {
+      border-color: var(--primary);
+      box-shadow: 0 0 25px rgba(37, 99, 235, 0.2);
+    }
+
+    .plan-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .plan-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .plan-card li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plan-card li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid var(--surface-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+<body>
 
-  <!-- Navegación -->
-  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-extrabold text-white text-xl shadow-lg shadow-indigo-500/25">
-          V
-        </div>
-        <span class="text-xl font-bold tracking-tight text-white">Vardelume</span>
-      </div>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-        <a href="#capacidades" class="hover:text-white transition">Capacidades</a>
-        <a href="#juridico" class="hover:text-white transition">Revisión Jurídica</a>
-        <a href="#precios" class="hover:text-white transition">Planes</a>
-      </nav>
-      <div class="flex items-center gap-4">
-        <a href="#precios" class="text-sm font-medium px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition shadow-md shadow-indigo-600/30">
-          Comenzar
-        </a>
+  <!-- NAVEGACIÓN -->
+  <header>
+    <div class="brand">
+      <div class="logo-badge">V</div>
+      <div>
+        <div class="brand-title">VARDELUME</div>
+        <div class="brand-sub">Legaltech Infrastructure</div>
       </div>
     </div>
+    <nav>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#planes">Planes B2B</a>
+      <a href="#compliance">Compliance</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <main class="flex-grow">
-    <section class="relative pt-24 pb-20 px-6 glow-bg text-center">
-      <div class="max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-950/40 text-indigo-400 text-xs font-semibold tracking-wide uppercase mb-8">
-          <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-          Inteligencia Financiera & Compliance Bilingüe
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">INFRAESTRUCTURA TRANSFRONTERIZA AUTÓNOMA</div>
+    <h1>Onboarding, Suscripciones y Blindaje Contractual en 10 Minutos</h1>
+    <p>Reemplace semanas de intercambio de correos y honorarios por hora con una plataforma de admisión automatizada en estricto Legal English (Common Law).</p>
+  </section>
+
+  <!-- CUESTIONARIO DIAGNÓSTICO INTERACTIVO -->
+  <main class="container" id="diagnostico">
+    <div class="card">
+      <div class="wizard-header">
+        <span class="step-indicator" id="step-label">PASO 1 DE 4 · OPERACIÓN</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Módulo de Admisión Automatizada</span>
+      </div>
+
+      <!-- PASO 1 -->
+      <div class="form-step active" id="step-1">
+        <h3>1. Naturaleza del Servicio y Relación Comercial</h3>
+        <p>Seleccione el marco bajo el cual formalizará la prestación transfronteriza:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption(1, 'servicio', 'Desarrollo de Software & IT', this)">
+            <strong>Desarrollo de Software & IT</strong>
+            <span>Software Factories, Devs Remotos, DevOps</span>
+          </div>
+          <div class="option-card" onclick="selectOption(1, 'servicio', 'Agencia de Marketing & E-Commerce', this)">
+            <strong>Marketing Digital & E-Commerce</strong>
+            <span>Gestión de tiendas, Ads, Creativos</span>
+          </div>
+          <div class="option-card" onclick="selectOption(1, 'servicio', 'Consultoría Corporativa / Finanzas', this)">
+            <strong>Consultoría Corporativa B2B</strong>
+            <span>Asesoría de negocios, Finanzas, Legal</span>
+          </div>
         </div>
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
-          Agentes de IA para auditar, traducir y <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-cyan-400">blindar tus contratos</span>.
-        </h1>
-        <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Automatiza la auditoría de flujos, detección de riesgos y traducción jurídica de alta precisión (EN ⇄ ES) con agentes entrenados para operaciones transfronterizas de alto rigor.
+        <div class="btn-row">
+          <div></div>
+          <button class="btn btn-primary" onclick="nextStep(2)">Siguiente Paso →</button>
+        </div>
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="form-step" id="step-2">
+        <h3>2. Fuero y Jurisdicción Aplicable</h3>
+        <p>Determine el estándar jurídico de validez probatoria para el acuerdo bilateral:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption(2, 'jurisdiccion', 'EE. UU. (Delaware / Florida - Common Law)', this)">
+            <strong>EE. UU. (Common Law)</strong>
+            <span>Delaware / Florida / Wyoming Standard</span>
+          </div>
+          <div class="option-card" onclick="selectOption(2, 'jurisdiccion', 'Reino Unido & Commonwealth', this)">
+            <strong>UK & Commonwealth</strong>
+            <span>Estándar de arbitraje anglosajón estricto</span>
+          </div>
+          <div class="option-card" onclick="selectOption(2, 'jurisdiccion', 'Transfronterizo Bilateral Mixto', this)">
+            <strong>Cláusula Bilateral Neutra</strong>
+            <span>Arbitraje comercial internacional (ICC / UNCITRAL)</span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-outline" onclick="prevStep(1)">← Volver</button>
+          <button class="btn btn-primary" onclick="nextStep(3)">Siguiente Paso →</button>
+        </div>
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="form-step" id="step-3">
+        <h3>3. Divisa de Liquidación y Flujo Transaccional</h3>
+        <p>Seleccione el régimen de cobro periódico recurrente para asegurar su flujo de caja:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption(3, 'pago', 'USD (Dólares Estadounidenses)', this)">
+            <strong>USD ($) Dólares</strong>
+            <span>Suscripción mensual recurrente vía Pasarela</span>
+          </div>
+          <div class="option-card" onclick="selectOption(3, 'pago', 'EUR (€) Euros', this)">
+            <strong>EUR (€) Euros</strong>
+            <span>SEPA / Transacciones europeas</span>
+          </div>
+          <div class="option-card" onclick="selectOption(3, 'pago', 'Criptoactivos Estables (USDT / USDC)', this)">
+            <strong>Activos Digitales (USDT / USDC)</strong>
+            <span>Liquidación descentralizada inmediata</span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-outline" onclick="prevStep(2)">← Volver</button>
+          <button class="btn btn-primary" onclick="nextStep(4)">Generar Diagnóstico →</button>
+        </div>
+      </div>
+
+      <!-- PASO 4 (RESULTADO INMEDIATO) -->
+      <div class="form-step" id="step-4">
+        <h3>Diagnóstico Operativo y Estructura Contractual Lista</h3>
+        <p>Los parámetros han sido normalizados y clasificados en la base de datos:</p>
+        
+        <div class="summary-box">
+          <div class="summary-item">
+            <span style="color: var(--text-muted);">Servicio Seleccionado:</span>
+            <strong id="res-servicio">Desarrollo de Software & IT</strong>
+          </div>
+          <div class="summary-item">
+            <span style="color: var(--text-muted);">Marco Jurisdiccional:</span>
+            <strong id="res-jurisdiccion">EE. UU. (Common Law)</strong>
+          </div>
+          <div class="summary-item">
+            <span style="color: var(--text-muted);">Régimen de Pago:</span>
+            <strong id="res-pago">USD ($) Dólares</strong>
+          </div>
+          <div class="summary-item">
+            <span style="color: var(--text-muted);">Instrumentos Ensamblados:</span>
+            <strong style="color: var(--accent);">NDA Bilateral + Independent Contractor Agreement (IP Assignment)</strong>
+          </div>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Para formalizar el alta operativa y activar las suscripciones recurrentes, seleccione su plan a continuación.
         </p>
-        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#precios" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition">
-            Ver Planes de Suscripción
-          </a>
-          <a href="#juridico" class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-semibold transition">
-            Auditoría Legal EN-ES
-          </a>
+
+        <div class="btn-row">
+          <button class="btn btn-outline" onclick="prevStep(3)">← Modificar Parámetros</button>
+          <a href="#planes" class="btn btn-primary" style="text-decoration: none;">Ver Planes y Pasarela de Pago ↓</a>
         </div>
       </div>
-    </section>
 
-    <!-- Capacidades / Diferenciadores -->
-    <section id="capacidades" class="py-20 border-t border-slate-850 bg-slate-900/30">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <h2 class="text-3xl font-bold text-white tracking-tight">Rigor institucional para finanzas complejas</h2>
-          <p class="mt-4 text-slate-400">Arquitectura diseñada para auditores, departamentos legales y fondos de inversión transfronterizos.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
-            <div class="h-12 w-12 rounded-xl bg-indigo-950/80 border border-indigo-700/40 flex items-center justify-center text-indigo-400 font-bold mb-6">01</div>
-            <h3 class="text-xl font-bold text-white mb-3">Auditoría de Balances y Flujos</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Detección de anomalías contables, proyección de riesgos de tesorería e inspección profunda en cuestión de segundos.</p>
-          </div>
-          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
-            <div class="h-12 w-12 rounded-xl bg-cyan-950/80 border border-cyan-700/40 flex items-center justify-center text-cyan-400 font-bold mb-6">02</div>
-            <h3 class="text-xl font-bold text-white mb-3">Traducción Jurídica EN ⇄ ES</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Interpretación contractual bilingüe con estricta correspondencia entre el Common Law anglosajón y el Derecho Continental.</p>
-          </div>
-          <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm">
-            <div class="h-12 w-12 rounded-xl bg-emerald-950/80 border border-emerald-700/40 flex items-center justify-center text-emerald-400 font-bold mb-6">03</div>
-            <h3 class="text-xl font-bold text-white mb-3">Compliance & Seguridad</h3>
-            <p class="text-slate-400 text-sm leading-relaxed">Modelos con retención de datos configurable, trazabilidad de cambios y estándares de confidencialidad financiera.</p>
-          </div>
-        </div>
+    </div>
+
+    <!-- TARJETAS DE PLANES Y COBRO -->
+    <div id="planes" class="pricing-grid">
+      
+      <div class="plan-card">
+        <h4>Starter B2B</h4>
+        <div class="plan-price">$190 <span>/ mes</span></div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Para freelancers y profesionales independientes en expansión.</p>
+        <ul>
+          <li>Hasta 2 incorporaciones mensuales</li>
+          <li>Contratos marco en Legal English</li>
+          <li>Pasarela transaccional internacional</li>
+          <li>Soporte operativo estándar</li>
+        </ul>
+        <button class="btn btn-outline" onclick="simularCheckout('Starter')">Seleccionar Starter</button>
       </div>
-    </section>
 
-    <!-- Sección Especializada en Traducción Jurídica -->
-    <section id="juridico" class="py-20 border-t border-slate-800/80 bg-slate-950">
-      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-indigo-400 text-sm font-semibold tracking-wider uppercase">Ventaja Transfronteriza</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2 leading-tight">
-            Elimina el riesgo de discrepancias contractuales entre EE.UU. y Latinoamérica.
-          </h2>
-          <p class="mt-6 text-slate-400 leading-relaxed">
-            Las herramientas genéricas suelen traducir términos jurídicos de forma literal e inexacta. Vardelume audita cláusulas de indemnización, representaciones y garantías (*representations & warranties*), limitación de responsabilidad y acuerdos de confidencialidad garantizando equivalencia jurídica exacta.
-          </p>
-          <ul class="mt-6 space-y-3 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Auditoría paralela de cláusulas críticas en inglés y español.</li>
-            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Detección de ambigüedades en penalidades y plazos de pago.</li>
-            <li class="flex items-center gap-2"><span class="text-indigo-400 font-bold">✓</span> Trazabilidad para dictámenes y aprobaciones legales.</li>
-          </ul>
-        </div>
-        <div class="p-8 rounded-2xl border border-slate-800 bg-slate-900/40 font-mono text-xs text-slate-400 space-y-4">
-          <div class="text-slate-500">// Protocolo de auditoría contractual bilingüe</div>
-          <div class="p-4 rounded-lg bg-slate-950/80 border border-slate-800">
-            <div class="text-indigo-400 font-semibold mb-1">EN (Source Clause):</div>
-            <div>"Party A agrees to indemnify, defend, and hold harmless Party B from any liquidated damages..."</div>
-          </div>
-          <div class="p-4 rounded-lg bg-slate-950/80 border border-slate-800">
-            <div class="text-cyan-400 font-semibold mb-1">ES (Validación Jurídica):</div>
-            <div>"La Parte A se compromete a mantener indemne a la Parte B frente a cláusulas penales liquidadas..."</div>
-          </div>
-          <div class="text-emerald-400 flex items-center gap-2">
-            <span>●</span> Compliance Score: 99.8% (Equivalencia doctrinal verificada)
-          </div>
-        </div>
+      <div class="plan-card highlight">
+        <div class="plan-tag">MÁS ELEGIDO</div>
+        <h4>Agency Growth</h4>
+        <div class="plan-price">$490 <span>/ mes</span></div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Para agencias de software y marketing con clientes globales.</p>
+        <ul>
+          <li>Onboarding ilimitado de clientes</li>
+          <li>Blindaje contractual completo (Common Law)</li>
+          <li>Cobro y conciliación recurrente automática</li>
+          <li>Asistencia notarial y compliance bilingüe</li>
+        </ul>
+        <button class="btn btn-primary" onclick="simularCheckout('Agency Growth')">Activar Suscripción</button>
       </div>
-    </section>
 
-    <!-- Planes de Suscripción -->
-    <section id="precios" class="py-24 border-t border-slate-800/80 bg-slate-900/40">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-indigo-400 text-xs font-semibold uppercase tracking-wider">Suscripciones Recurrentes</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">Planes diseñados para cada etapa operativa</h2>
-          <p class="mt-4 text-slate-400 text-sm">Cobro mensual automatizado en USD a través de PayPal con facturación transparente.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-          
-          <!-- Plan Starter -->
-          <div class="border border-slate-800 bg-slate-950/60 p-8 rounded-2xl flex flex-col justify-between hover:border-slate-700 transition">
-            <div>
-              <h3 class="text-lg font-bold text-white">Starter</h3>
-              <p class="text-sm text-slate-400 mt-1">Para profesionales independientes y consultores.</p>
-              <div class="mt-6 flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white">$29</span>
-                <span class="text-sm text-slate-400">/ mes</span>
-              </div>
-              <ul class="mt-8 space-y-3.5 text-sm text-slate-300">
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Hasta 2 agentes financieros activos</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Análisis de hasta 50 documentos/mes</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Revisión jurídica básica EN-ES</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Historial de auditoría por 30 días</li>
-              </ul>
-            </div>
-            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4W3824526D003303LNLA4DVY" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">
-              Elegir Starter ($29/mes)
-            </a>
-          </div>
-
-          <!-- Plan Professional (Destacado) -->
-          <div class="border-2 border-indigo-500 bg-slate-900/90 p-8 rounded-2xl flex flex-col justify-between shadow-2xl shadow-indigo-500/10 relative transform lg:-translate-y-2">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-600 rounded-full text-[11px] font-bold text-white uppercase tracking-wider">
-              Recomendado
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-white">Professional</h3>
-              <p class="text-sm text-slate-400 mt-1">Para empresas, firmas legales y fondos con flujo continuo.</p>
-              <div class="mt-6 flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white">$99</span>
-                <span class="text-sm text-slate-400">/ mes</span>
-              </div>
-              <ul class="mt-8 space-y-3.5 text-sm text-slate-200">
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Agentes financieros ilimitados</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Auditoría y traducción contractual avanzada</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Extracción inteligente de reportes</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Integración API y Webhooks</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Soporte prioritario</li>
-              </ul>
-            </div>
-            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5XS72719SM172170JNLA4JNI" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition shadow-lg shadow-indigo-600/30">
-              Comenzar Professional ($99/mes)
-            </a>
-          </div>
-
-          <!-- Plan Enterprise -->
-          <div class="border border-slate-800 bg-slate-950/60 p-8 rounded-2xl flex flex-col justify-between hover:border-slate-700 transition">
-            <div>
-              <h3 class="text-lg font-bold text-white">Enterprise</h3>
-              <p class="text-sm text-slate-400 mt-1">Para corporaciones que exigen infraestructura dedicada.</p>
-              <div class="mt-6 flex items-baseline gap-1">
-                <span class="text-4xl font-extrabold text-white">$299</span>
-                <span class="text-sm text-slate-400">/ mes</span>
-              </div>
-              <ul class="mt-8 space-y-3.5 text-sm text-slate-300">
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Todo lo incluido en Professional</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Modelos e infraestructura privada</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Políticas de retención de datos personalizadas</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> SLA de disponibilidad 99.9%</li>
-                <li class="flex items-center gap-2.5"><span class="text-indigo-400 font-bold">✓</span> Onboarding asistido con compliance legal</li>
-              </ul>
-            </div>
-            <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-94M747035N773125ENLA4NDI" target="_blank" rel="noopener noreferrer" class="mt-8 block text-center w-full py-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-medium transition">
-              Elegir Enterprise ($299/mes)
-            </a>
-          </div>
-
-        </div>
+      <div class="plan-card">
+        <h4>Enterprise Infra</h4>
+        <div class="plan-price">$980 <span>/ mes</span></div>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Para firmas que requieren integración a medida y multi-jurisdicción.</p>
+        <ul>
+          <li>Arquitectura API y base de datos dedicada</li>
+          <li>Cláusulas a medida y arbitraje transfronterizo</li>
+          <li>Canal prioritario de revisión legal</li>
+          <li>Multi-moneda y contratos multi-empresa</li>
+        </ul>
+        <button class="btn btn-outline" onclick="simularCheckout('Enterprise')">Contactar Enterprise</button>
       </div>
-    </section>
+
+    </div>
   </main>
 
-  <!-- Pie de página -->
-  <footer class="border-t border-slate-900 bg-slate-950 py-10 text-center text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <span class="font-bold text-slate-400">Vardelume</span> &copy; 2026. Todos los derechos reservados.
-      </div>
-      <div class="text-slate-600">
-        Pagos seguros procesados internacionalmente por PayPal.
-      </div>
-    </div>
+  <footer>
+    <p>VARDELUME © 2026 · Infraestructura Legaltech, Onboarding & Servicios Transfronterizos B2B.</p>
   </footer>
 
+  <!-- LÓGICA INTERACTIVA -->
+  <script>
+    const state = {
+      servicio: 'Desarrollo de Software & IT',
+      jurisdiccion: 'EE. UU. (Delaware / Florida - Common Law)',
+      pago: 'USD (Dólares Estadounidenses)'
+    };
+
+    function selectOption(step, key, val, element) {
+      state[key] = val;
+      const parent = element.parentElement;
+      const cards = parent.querySelectorAll('.option-card');
+      cards.forEach(c => c.classList.remove('selected'));
+      element.classList.add('selected');
+    }
+
+    function nextStep(step) {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+      
+      const labels = [
+        'PASO 1 DE 4 · OPERACIÓN',
+        'PASO 2 DE 4 · JURISDICCIÓN',
+        'PASO 3 DE 4 · RÉGIMEN FINANCIERO',
+        'PASO 4 DE 4 · DICTAMEN EMITIDO'
+      ];
+      document.getElementById('step-label').innerText = labels[step - 1];
+
+      if(step === 4) {
+        document.getElementById('res-servicio').innerText = state.servicio;
+        document.getElementById('res-jurisdiccion').innerText = state.jurisdiccion;
+        document.getElementById('res-pago').innerText = state.pago;
+        // Simulación de persistencia de base de datos relacional
+        localStorage.setItem('vardelume_diagnostic', JSON.stringify(state));
+      }
+    }
+
+    function prevStep(step) {
+      nextStep(step);
+    }
+
+    function simularCheckout(plan) {
+      alert('Iniciando pasarela de cobro recurrente para plan [' + plan + '] en divisa internacional.\n\nDatos diagnósticos vinculados exitosamente.');
+    }
+  </script>
 </body>
 </html>
