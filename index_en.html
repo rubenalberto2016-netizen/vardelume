@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vardelume | Legaltech, B2B Cross-Border Infrastructure & Legal English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-card: #161f32;
+      --surface-border: #1f293d;
+      --border-accent: #2563eb;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #38bdf8;
+      --gold: #f59e0b;
+      --success: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--surface-border);
+      background-color: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(14px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text-main);
+    }
+
+    .btn-header {
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-header:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background-color: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--accent);
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 {
+      font-size: 3.1rem;
+      font-weight: 800;
+      line-height: 1.18;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(180deg, #ffffff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* BOTONES */
+    .btn {
+      padding: 0.85rem 2rem;
+      border-radius: 9px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--surface-border);
+      color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--text-muted);
+    }
+
+    /* SECCIONES COMUNES */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* PILARES OPERATIVOS */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: 14px;
+      padding: 2.2rem;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* TABLA COMPARATIVA */
+    .comparison-container {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      overflow-x: auto;
+      margin-top: 2rem;
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--surface-border);
+      font-size: 0.95rem;
+    }
+
+    .comp-table th {
+      background-color: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* WIZARD CARD */
+    .wizard-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 18px;
+      padding: 2.8rem;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .wizard-bar {
+      border-bottom: 1px solid var(--surface-border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.35s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .option-card {
+      border: 1px solid var(--surface-border);
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      padding: 1.3rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .option-card:hover {
+      border-color: var(--primary);
+      background-color: rgba(37, 99, 235, 0.08);
+    }
+
+    .option-card.selected {
+      border-color: var(--accent);
+      background-color: rgba(56, 189, 248, 0.12);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+
+    .option-card strong {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .option-card span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .summary-box {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 1.7rem;
+      border-radius: 12px;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    /* INSTITUCIONAL / AUTORIDAD */
+    .authority-card {
+      background: linear-gradient(180deg, var(--surface-card), #0c121e);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .authority-card { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.3rem; }
+    }
+
+    .authority-meta h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .authority-meta p {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .plan-card {
+      background-color: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: 16px;
+      padding: 2.4rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan-card.highlight {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(37, 99, 235, 0.25);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .plan-card h4 {
+      font-size: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 1rem 0;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin-bottom: 2.2rem;
+      flex-grow: 1;
+    }
+
+    .plan-card li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .plan-card li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    footer {
+      border-top: 1px solid var(--surface-border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="brand">
+      <div class="logo-badge">V</div>
+      <div>
+        <div class="brand-title">VARDELUME</div>
+        <div class="brand-sub">Legaltech & Cross-Border B2B</div>
+      </div>
+    </a>
+    <nav>
+      <a href="#architecture">Architecture</a>
+      <a href="#diagnostic">Interactive Diagnostic</a>
+      <a href="#efficiency">Operational Efficiency</a>
+      <a href="#framework">Institutional Framework</a>
+      <a href="#pricing" class="btn-header">Start Subscription</a>
+      
+      <!-- Language Selector (EN active) -->
+      <div style="display:flex; gap:10px; align-items:center; margin-left: 15px; font-weight:600; font-size:0.9rem;">
+        <a href="index.html" style="color: var(--text-muted); text-decoration: none; transition: 0.2s;" onmouseover="this.style.color='#f9fafb'" onmouseout="this.style.color='#9ca3af'">ES</a>
+        <span style="color: var(--surface-border);">|</span>
+        <span style="color: var(--accent);">EN</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-badge">Cross-Border Legal & Operational Infrastructure</div>
+    <h1>Onboarding, Subscriptions, and Contractual Shielding in 10 Minutes</h1>
+    <p>
+      We eliminate the 10-to-14-day bureaucratic bottleneck. Automate client intake, 
+      secure recurring billing in international currency, and shield cross-border agreements under strict Legal English (Common Law) standards.
+    </p>
+    <div class="hero-actions">
+      <a href="#diagnostic" class="btn btn-primary">Start Interactive Diagnostic →</a>
+      <a href="#architecture" class="btn btn-secondary">Discover the Architecture</a>
+    </div>
+  </section>
+
+  <!-- OPERATIONAL PILLARS -->
+  <section class="section-wrap" id="architecture">
+    <div class="section-header">
+      <span class="section-tag">Decoupled Infrastructure</span>
+      <h2 class="section-title">Cross-Border Automation Pillars</h2>
+      <p class="section-desc">Designed for software factories, digital agencies, and consulting firms that cannot afford to halt sales due to traditional legal friction.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Dynamic Intake & Onboarding</h3>
+        <p>Replaces endless preliminary email threads with a structured questionnaire that standardizes technical requirements, delivery schedules, and liabilities in a relational database.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📜</div>
+        <h3>Contractual Drafting in Legal English</h3>
+        <p>Automated drafting and deployment of agreements under Common Law jurisdictions (Delaware, Wyoming, UK): Bilateral NDAs, Independent Contractor Agreements, and unconditional Intellectual Property assignments.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Guaranteed Recurring Subscriptions</h3>
+        <p>Payment gateway integration for periodic advance billing. Avoid the manual chase for receipts, unforeseen charges, or cross-border banking delays.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DIAGNOSTIC WIZARD -->
+  <section class="section-wrap" id="diagnostic">
+    <div class="section-header">
+      <span class="section-tag">Live Operational Intake</span>
+      <h2 class="section-title">Contracting Diagnostic & Parameters</h2>
+      <p class="section-desc">Select your operational parameters to issue the contractual structure and corresponding transactional framework in real-time.</p>
+    </div>
+
+    <div class="wizard-card">
+      <div class="wizard-bar">
+        <span id="step-label" style="font-size: 0.85rem; font-weight: 700; color: var(--accent); text-transform: uppercase;">STEP 1 OF 4 · B2B OPERATION</span>
+        <span style="font-size: 0.85rem; color: var(--text-dim);">Vardelume Engine System v2.4</span>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="form-step active" id="step-1">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.4rem;">1. Service Sector and Contracting Type</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Select the operational scope of the cross-border commercial relationship:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption('servicio', 'Software Development & IT Architecture', this)">
+            <strong>Software & IT Services</strong>
+            <span>Dedicated development, DevOps, SaaS Architecture</span>
+          </div>
+          <div class="option-card" onclick="selectOption('servicio', 'Digital Marketing & E-Commerce Scale', this)">
+            <strong>Growth & E-Commerce</strong>
+            <span>Ad management, funnels, design, Shopify Ops</span>
+          </div>
+          <div class="option-card" onclick="selectOption('servicio', 'Corporate Consulting & B2B Finance', this)">
+            <strong>Consulting & Advisory</strong>
+            <span>Legal strategy, tax structuring, corporate finance</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+          <button class="btn btn-primary" onclick="goToStep(2)">Continue to Step 2 →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="form-step" id="step-2">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.4rem;">2. Jurisdictional Framework and Governing Law</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Establish the valid jurisdiction for dispute resolution and signature validity:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption('jurisdiccion', 'United States (Delaware / Florida - Common Law)', this)">
+            <strong>USA (Common Law)</strong>
+            <span>Standard Delaware or Florida choice of forum clause</span>
+          </div>
+          <div class="option-card" onclick="selectOption('jurisdiccion', 'United Kingdom & Commonwealth Standard', this)">
+            <strong>UK & Commonwealth</strong>
+            <span>Strict Anglo-Saxon commercial arbitration</span>
+          </div>
+          <div class="option-card" onclick="selectOption('jurisdiccion', 'Neutral Commercial Arbitration (ICC / UNCITRAL)', this)">
+            <strong>Neutral Arbitral Court</strong>
+            <span>Swift resolution without traditional litigation</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button class="btn btn-secondary" onclick="goToStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="goToStep(3)">Continue to Step 3 →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="form-step" id="step-3">
+        <h3 style="font-size: 1.3rem; margin-bottom: 0.4rem;">3. Billing Regime and Periodic Settlement</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Determine the recurring revenue channel to shield your financial flow:</p>
+        <div class="options-grid">
+          <div class="option-card" onclick="selectOption('pago', 'USD ($) Recurring Monthly Subscription', this)">
+            <strong>USD ($) Dollars</strong>
+            <span>Periodic debit in international account</span>
+          </div>
+          <div class="option-card" onclick="selectOption('pago', 'EUR (€) SEPA Transactional Zone', this)">
+            <strong>EUR (€) Euros</strong>
+            <span>Direct programmed European transfer</span>
+          </div>
+          <div class="option-card" onclick="selectOption('pago', 'USDT / USDC (On-Chain Settlement)', this)">
+            <strong>Stable Digital Assets</strong>
+            <span>Instant cross-border settlement</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <button class="btn btn-secondary" onclick="goToStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="goToStep(4)">Process Dictum →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="form-step" id="step-4">
+        <h3 style="font-size: 1.35rem; margin-bottom: 0.4rem;">Operational Dictum & Generated Structure</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">The dossier has been standardized and classified for immediate deployment:</p>
+
+        <div class="summary-box">
+          <div class="summary-row">
+            <span style="color: var(--text-muted);">Parametrized Service:</span>
+            <strong id="res-servicio">Software Development & IT Architecture</strong>
+          </div>
+          <div class="summary-row">
+            <span style="color: var(--text-muted);">Forum and Governing Law:</span>
+            <strong id="res-jurisdiccion">United States (Common Law)</strong>
+          </div>
+          <div class="summary-row">
+            <span style="color: var(--text-muted);">Billing Scheme:</span>
+            <strong id="res-pago">USD ($) Monthly Subscription</strong>
+          </div>
+          <div class="summary-row">
+            <span style="color: var(--text-muted);">Assembled Instruments:</span>
+            <strong style="color: var(--accent);">Bilateral NDA + Master Services Agreement + IP Transfer Rider</strong>
+          </div>
+        </div>
+
+        <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+          All documentation is ready for binding electronic signature once the corresponding plan is activated.
+        </p>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <button class="btn btn-secondary" onclick="goToStep(3)">← Modify Parameters</button>
+          <a href="#pricing" class="btn btn-primary">Select Plan and Activate Flow ↓</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPARISON / ROI MATRIX -->
+  <section class="section-wrap" id="efficiency">
+    <div class="section-header">
+      <span class="section-tag">Measurable Efficiency</span>
+      <h2 class="section-title">Traditional Route vs. Vardelume Infrastructure</h2>
+      <p class="section-desc">Direct operational optimization metrics for corporate service providers.</p>
+    </div>
+
+    <div class="comparison-container">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Process Stage</th>
+            <th>Traditional Legal & Operational Mgmt</th>
+            <th>Vardelume Platform</th>
+            <th>Operational Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Onboarding Time</strong></td>
+            <td>10 to 14 business days crossing proposals and contracts</td>
+            <td class="comp-highlight">Less than 10 automated minutes</td>
+            <td><strong>-90% time reduction</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Formalization Cost</strong></td>
+            <td>$400 - $800 USD per contract in law firms</td>
+            <td class="comp-highlight">B2B infrastructure flat rate</td>
+            <td><strong>-65% legal costs</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Billing Management</strong></td>
+            <td>Manual invoicing and tracking of wire transfers</td>
+            <td class="comp-highlight">Recurring subscription and scheduled debit</td>
+            <td><strong>Guaranteed cash flow</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Intellectual Property Shielding</strong></td>
+            <td>Ambiguous literal translation lacking rigor in Common Law courts</td>
+            <td class="comp-highlight">Strict Legal English clauses with full validity</td>
+            <td><strong>Evidentiary certainty</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONAL / LEGAL AUTHORITY -->
+  <section class="section-wrap" id="framework">
+    <div class="authority-card">
+      <div>
+        <div class="logo-badge" style="width: 60px; height: 60px; font-size: 1.8rem; margin-bottom: 1.5rem;">V</div>
+        <div class="authority-meta">
+          <h3>Ruben Alberto Soria</h3>
+          <p>Founder & Legaltech Specialist</p>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: #fff;">Legal, Notarial, and Compliance Direction</h4>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+          Specialist in corporate law, notarial public faith, and contractual drafting in <strong>Legal English</strong>. 
+          Vardelume was born to merge legal rigor with modern software engineering, providing companies with a secure 
+          infrastructure that prevents jurisdictional asymmetries and guarantees transparent cross-border commercial relations.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          We operate under the commitment to standardize the formalization of global business, eliminating contractual uncertainty and accelerating your firm's international expansion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS & CHECKOUT -->
+  <section class="section-wrap" id="pricing">
+    <div class="section-header">
+      <span class="section-tag">Subscription Schemes</span>
+      <h2 class="section-title">Corporate Plans and Activation Gateway</h2>
+      <p class="section-desc">Select the plan that best fits your company's monthly contracting volume.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <h4>Starter B2B</h4>
+        <div class="plan-price">$190 <span>/ month</span></div>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">For independent professionals and early-stage agencies.</p>
+        <ul>
+          <li>Up to 2 monthly intakes and diagnostics</li>
+          <li>NDAs and master agreements in Legal English</li>
+          <li>Integrated international transactional gateway</li>
+          <li>Priority operational support</li>
+        </ul>
+        <button class="btn btn-secondary" onclick="iniciarCheckout('Starter B2B')">Activate Starter Plan</button>
+      </div>
+
+      <div class="plan-card highlight">
+        <div class="plan-badge">RECOMMENDED</div>
+        <h4>Agency Growth</h4>
+        <div class="plan-price">$490 <span>/ month</span></div>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">For software factories and consulting firms in full global expansion.</p>
+        <ul>
+          <li>Unlimited onboarding and diagnostics</li>
+          <li>Full contractual shielding under Common Law</li>
+          <li>Absolute IP assignment (Intellectual Property Rider)</li>
+          <li>Recurring subscriptions and automatic reconciliation</li>
+          <li>Bilingual notarial and compliance review</li>
+        </ul>
+        <button class="btn btn-primary" onclick="iniciarCheckout('Agency Growth')">Activate Agency Growth</button>
+      </div>
+
+      <div class="plan-card">
+        <h4>Enterprise Infra</h4>
+        <div class="plan-price">$980 <span>/ month</span></div>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.5rem;">For corporations with high volume and multiple legal entities.</p>
+        <ul>
+          <li>Dedicated instance and private database connection</li>
+          <li>Custom clauses and ICC arbitration agreements</li>
+          <li>Exclusive legal and notarial supervision channel</li>
+          <li>Multi-currency and multi-country contracting</li>
+        </ul>
+        <button class="btn btn-secondary" onclick="iniciarCheckout('Enterprise Infra')">Contact Enterprise</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>VARDELUME © 2026 · Legaltech & Cross-Border Infrastructure. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; color: var(--text-dim); font-size: 0.8rem;">
+      B2B Infrastructure oriented to the contracting and settlement of international professional services under Common Law technique.
+    </p>
+  </footer>
+
+  <!-- LOGIC -->
+  <script>
+    const sessionData = {
+      servicio: 'Software Development & IT Architecture',
+      jurisdiccion: 'United States (Delaware / Florida - Common Law)',
+      pago: 'USD ($) Recurring Monthly Subscription'
+    };
+
+    function selectOption(key, val, el) {
+      sessionData[key] = val;
+      const parent = el.parentElement;
+      parent.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function goToStep(step) {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+
+      const labels = [
+        'STEP 1 OF 4 · B2B OPERATION',
+        'STEP 2 OF 4 · JURISDICTION & FORUM',
+        'STEP 3 OF 4 · FINANCIAL REGIME',
+        'STEP 4 OF 4 · CONTRACTING DICTUM'
+      ];
+      document.getElementById('step-label').innerText = labels[step - 1];
+
+      if(step === 4) {
+        document.getElementById('res-servicio').innerText = sessionData.servicio;
+        document.getElementById('res-jurisdiccion').innerText = sessionData.jurisdiccion;
+        document.getElementById('res-pago').innerText = sessionData.pago;
+        localStorage.setItem('vardelume_intake', JSON.stringify(sessionData));
+      }
+    }
+
+    function iniciarCheckout(plan) {
+      alert('Initiating payment gateway for [' + plan + '] plan.\n\nThe intake dossier has been successfully synchronized for contract formalization.');
+    }
+  </script>
+</body>
+</html>
