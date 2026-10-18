@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vardelume — Gestión, Traducción y Diagnóstico Legal</title>
-    <meta name="description" content="Plataforma LegalTech con diagnóstico automatizado, traducción en inglés jurídico y gestión documental avanzada.">
+    <title>Vardelume — Gestión de Documentos Legales, Traducción y Diagnóstico</title>
+    <meta name="description" content="Plataforma LegalTech con diagnóstico automatizado, traducción jurídica especializada en inglés y gestión avanzada de documentos.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Navbar Superior con Selector ES/EN y Diagnóstico -->
+    <!-- Barra de Navegación Superior con Selector ES/EN y Diagnóstico -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#090a0f]/80 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -25,12 +25,12 @@
             </div>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="#diagnostico" class="hover:text-blue-400 transition-colors flex items-center space-x-1.5">
+                <a href="#diagnostics" class="hover:text-blue-400 transition-colors flex items-center space-x-1.5">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span>Diagnóstico Legal</span>
                 </a>
-                <a href="#traduccion" class="hover:text-blue-400 transition-colors">Traducción Jurídica</a>
-                <a href="#planes" class="hover:text-blue-400 transition-colors">Planes</a>
+                <a href="#translation" class="hover:text-blue-400 transition-colors">Traducción Jurídica</a>
+                <a href="#plans" class="hover:text-blue-400 transition-colors">Planes</a>
             </nav>
 
             <div class="flex items-center space-x-4">
@@ -38,8 +38,8 @@
                 <button onclick="toggleLanguage()" id="langBtn" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-300 hover:border-blue-500 hover:text-blue-400 transition-all">
                     ES / EN
                 </button>
-                <a href="#planes" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">
-                    Acceder
+                <a href="#plans" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">
+                    Acceder al Sistema
                 </a>
             </div>
         </div>
@@ -53,43 +53,43 @@
                 <span>Ecosistema LegalTech con Agentes de IA</span>
             </div>
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-8">
-                Gestión, Diagnóstico y <br><span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">Traducción Documental Avanzada.</span>
+                Gestión, Diagnóstico y <br><span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">Traducción Avanzada de Documentos.</span>
             </h1>
             <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed mb-12">
-                Integra la revisión automatizada de borradores, análisis de contratos complejos en inglés jurídico y planes corporativos estructurados.
+                Integra revisión automatizada de borradores, análisis de contratos complejos en inglés jurídico y niveles de suscripción corporativa estructurados.
             </p>
         </div>
     </section>
 
-    <!-- Sección de Diagnóstico Rápido (Interactiva) -->
-    <section id="diagnostico" class="py-16 bg-[#0c0e14] border-t border-gray-800/60">
+    <!-- Sección de Diagnóstico Legal Rápido (Interactiva) -->
+    <section id="diagnostics" class="py-16 bg-[#0c0e14] border-t border-gray-800/60">
         <div class="max-w-4xl mx-auto px-6">
             <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 shadow-2xl">
                 <h3 class="text-2xl font-bold text-white mb-3">Panel de Diagnóstico Legal Preliminar</h3>
-                <p class="text-gray-400 text-sm mb-6">Pega un fragmento de tu contrato o documento jurídico para evaluar riesgos y validar su estado:</p>
+                <p class="text-gray-400 text-sm mb-6">Pega un fragmento de tu contrato o documento legal para evaluar riesgos y validar su estado:</p>
                 
-                <textarea id="diagnosticInput" rows="4" class="w-full bg-[#090a0f] border border-gray-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-blue-500 mb-4" placeholder="Ej: This Agreement shall be governed by and construed in accordance with the laws of..."></textarea>
+                <textarea id="diagnosticInput" rows="4" class="w-full bg-[#090a0f] border border-gray-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-blue-500 mb-4" placeholder="Ej., Este Acuerdo se regirá e interpretará de conformidad con las leyes de..."></textarea>
                 
                 <div class="flex items-center justify-between">
                     <button onclick="runDiagnostic()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl text-sm transition-all shadow-lg shadow-blue-600/20">
-                        Ejecutar Diagnóstico Automático
+                        Ejecutar Diagnóstico Automatizado
                     </button>
                     <span id="diagStatus" class="text-xs text-gray-400">Sistema listo</span>
                 </div>
                 
                 <div id="diagResult" class="hidden mt-6 p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 text-sm text-blue-200">
-                    <strong>Resultado del análisis:</strong> Documento procesado correctamente. Sin cláusulas de riesgo crítico detectadas en el fragmento base.
+                    <strong>Resultado del análisis:</strong> Documento procesado con éxito. No se detectaron cláusulas de riesgo crítico en el fragmento base.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Planes y Suscripciones (Con Precios Correctos) -->
-    <section id="planes" class="py-24 border-t border-gray-800/60 bg-[#090a0f]">
+    <!-- Sección de Planes de Suscripción -->
+    <section id="plans" class="py-24 border-t border-gray-800/60 bg-[#090a0f]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Planes de Suscripción</h2>
-                <p class="text-gray-400 text-base">Escoge el nivel adecuado para tu estudio jurídico o práctica corporativa.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Niveles de Suscripción</h2>
+                <p class="text-gray-400 text-base">Selecciona el nivel ideal de acceso a la plataforma y potencia de traducción para tu ejercicio profesional.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
@@ -97,15 +97,15 @@
                 <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Starter</h3>
-                        <p class="text-gray-400 text-sm mb-6">Para profesionales independientes y traductores legales.</p>
+                        <p class="text-gray-400 text-sm mb-6">Funciones esenciales para profesionales independientes y traductores jurídicos.</p>
                         <div class="text-4xl font-bold text-white mb-6">$190<span class="text-sm font-normal text-gray-400"> /mes</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Traducción de inglés jurídico</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Diagnóstico documental base</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Diagnóstico básico de documentos</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Soporte estándar</li>
                         </ul>
                     </div>
-                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Suscribirme vía PayPal</a>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Suscribirse vía PayPal</a>
                 </div>
 
                 <!-- Plan 2: Professional ($490) -->
@@ -115,38 +115,38 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Professional</h3>
-                        <p class="text-gray-400 text-sm mb-6">Para firmas de abogados con alto volumen operativo.</p>
+                        <p class="text-gray-400 text-sm mb-6">Mayor potencia de procesamiento y colaboración para estudios jurídicos.</p>
                         <div class="text-4xl font-bold text-white mb-6">$490<span class="text-sm font-normal text-gray-400"> /mes</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Todo lo incluido en Starter</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Análisis y revisión avanzada de borradores</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Acceso a workspace en equipo</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Revisión y análisis avanzado de borradores</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Acceso a espacio de trabajo en equipo</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Soporte prioritario</li>
                         </ul>
                     </div>
-                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-center transition-all shadow-lg shadow-blue-600/20">Suscribirme vía PayPal</a>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-center transition-all shadow-lg shadow-blue-600/20">Suscribirse vía PayPal</a>
                 </div>
 
                 <!-- Plan 3: Enterprise ($980) -->
                 <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Enterprise</h3>
-                        <p class="text-gray-400 text-sm mb-6">Infraestructura corporativa con agentes de IA especializados.</p>
+                        <p class="text-gray-400 text-sm mb-6">Infraestructura corporativa a gran escala con agentes de IA dedicados.</p>
                         <div class="text-4xl font-bold text-white mb-6">$980<span class="text-sm font-normal text-gray-400"> /mes</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Todo lo incluido en Professional</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Agentes legales y financieros ilimitados</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Máxima seguridad y retención</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Agentes legales y financieros de IA ilimitados</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Máxima seguridad y retención de documentos</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Asistencia dedicada 24/7</li>
                         </ul>
                     </div>
-                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Suscribirme vía PayPal</a>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Suscribirse vía PayPal</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Script de Funcionalidad Simple (Diagnóstico e Idioma) -->
+    <!-- Script Interactivo -->
     <script>
         function runDiagnostic() {
             const input = document.getElementById('diagnosticInput').value;
@@ -154,7 +154,7 @@
             const result = document.getElementById('diagResult');
             
             if(!input.trim()) {
-                alert('Por favor, ingresa un texto para diagnosticar.');
+                alert('Por favor, introduce texto para diagnosticar.');
                 return;
             }
             
@@ -169,11 +169,10 @@
         function toggleLanguage() {
             currentLang = currentLang === 'ES' ? 'EN' : 'ES';
             document.getElementById('langBtn').innerText = currentLang + ' / ' + (currentLang === 'ES' ? 'EN' : 'ES');
-            // Aquí puedes alternar textos si lo deseas o mantener la navegación fluida
         }
     </script>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="mt-auto py-12 border-t border-gray-800 text-center text-sm text-gray-500">
         <p>&copy; 2026 Vardelume. Todos los derechos reservados.</p>
     </footer>
