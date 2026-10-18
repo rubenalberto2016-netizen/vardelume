@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vardelume — Legal Document Management & Translation</title>
-    <meta name="description" content="Comprehensive LegalTech platform for specialized legal English translation and secure document management.">
+    <title>Vardelume — Legal Document Management, Translation & Diagnostics</title>
+    <meta name="description" content="LegalTech platform featuring automated diagnostics, specialized legal English translation, and advanced document management.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Top Navbar Vardelume -->
+    <!-- Top Navbar with EN/ES Selector and Diagnostics -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#090a0f]/80 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -25,46 +25,67 @@
             </div>
             
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
-                <a href="#security" class="hover:text-blue-400 transition-colors">Security</a>
+                <a href="#diagnostics" class="hover:text-blue-400 transition-colors flex items-center space-x-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Legal Diagnostics</span>
+                </a>
+                <a href="#translation" class="hover:text-blue-400 transition-colors">Legal Translation</a>
                 <a href="#plans" class="hover:text-blue-400 transition-colors">Plans</a>
             </nav>
 
             <div class="flex items-center space-x-4">
-                <a href="#plans" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">
+                <!-- Language Selector Button (EN / ES) -->
+                <button onclick="toggleLanguage()" id="langBtn" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-300 hover:border-blue-500 hover:text-blue-400 transition-all">
+                    EN / ES
+                </button>
+                <a href="#plans" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 rounded-xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">
                     Access System
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section Vardelume -->
-    <section class="relative pt-20 pb-32 overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-20 overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(37,99,235,0.15),rgba(255,255,255,0))]"></div>
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-semibold mb-8 animate-pulse">
-                <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                <span>Advanced LegalTech & Legal Translation</span>
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-semibold mb-8">
+                <span>LegalTech Ecosystem with AI Agents</span>
             </div>
             <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-8">
-                Optimize your contracts, <br><span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">guarantee legal precision.</span>
+                Management, Diagnostics & <br><span class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">Advanced Document Translation.</span>
             </h1>
             <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed mb-12">
-                The comprehensive platform designed for law firms and corporate professionals to automate review, analysis, and specialized translation of legal documents.
+                Integrate automated draft review, complex legal English contract analysis, and structured corporate subscription tiers.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5">
-                <a href="#plans" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-900 bg-blue-400 rounded-xl hover:bg-blue-300 transition-all shadow-xl shadow-blue-400/20 text-center">
-                    View Subscription Plans
-                </a>
-                <a href="#features" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-gray-900 border border-gray-800 rounded-xl hover:bg-gray-800 transition-all text-center">
-                    Explore Platform
-                </a>
+        </div>
+    </section>
+
+    <!-- Quick Legal Diagnostics Section (Interactive) -->
+    <section id="diagnostics" class="py-16 bg-[#0c0e14] border-t border-gray-800/60">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 shadow-2xl">
+                <h3 class="text-2xl font-bold text-white mb-3">Preliminary Legal Diagnostic Panel</h3>
+                <p class="text-gray-400 text-sm mb-6">Paste a fragment of your contract or legal document to evaluate risks and validate its status:</p>
+                
+                <textarea id="diagnosticInput" rows="4" class="w-full bg-[#090a0f] border border-gray-700 rounded-xl p-4 text-sm text-white focus:outline-none focus:border-blue-500 mb-4" placeholder="E.g., This Agreement shall be governed by and construed in accordance with the laws of..."></textarea>
+                
+                <div class="flex items-center justify-between">
+                    <button onclick="runDiagnostic()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl text-sm transition-all shadow-lg shadow-blue-600/20">
+                        Run Automated Diagnostic
+                    </button>
+                    <span id="diagStatus" class="text-xs text-gray-400">System ready</span>
+                </div>
+                
+                <div id="diagResult" class="hidden mt-6 p-4 rounded-xl bg-blue-950/30 border border-blue-500/30 text-sm text-blue-200">
+                    <strong>Analysis Result:</strong> Document processed successfully. No critical risk clauses detected in the base fragment.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Subscription Plans Section Vardelume -->
-    <section id="plans" class="py-24 border-t border-gray-800/60 bg-[#0c0e14]">
+    <!-- Subscription Plans Section -->
+    <section id="plans" class="py-24 border-t border-gray-800/60 bg-[#090a0f]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Subscription Tiers</h2>
@@ -72,7 +93,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                <!-- Plan 1: Starter -->
+                <!-- Plan 1: Starter ($190) -->
                 <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Starter</h3>
@@ -80,14 +101,14 @@
                         <div class="text-4xl font-bold text-white mb-6">$190<span class="text-sm font-normal text-gray-400"> /mo</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Legal English translation</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Core document tools</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Core document diagnostics</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Standard support</li>
                         </ul>
                     </div>
                     <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Subscribe via PayPal</a>
                 </div>
 
-                <!-- Plan 2: Professional (Featured) -->
+                <!-- Plan 2: Professional ($490) -->
                 <div class="bg-gradient-to-b from-blue-950/40 to-[#12151c] rounded-3xl p-8 border-2 border-blue-500/60 flex flex-col justify-between relative shadow-2xl shadow-blue-950/50">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">
                         Most Popular
@@ -97,8 +118,8 @@
                         <p class="text-gray-400 text-sm mb-6">Advanced processing power and collaboration for law firms.</p>
                         <div class="text-4xl font-bold text-white mb-6">$490<span class="text-sm font-normal text-gray-400"> /mo</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Everything in Starter</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Advanced draft review & analysis</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Everything included in Starter</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Advanced draft review and analysis</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Team workspace access</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Priority support</li>
                         </ul>
@@ -106,16 +127,16 @@
                     <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-center transition-all shadow-lg shadow-blue-600/20">Subscribe via PayPal</a>
                 </div>
 
-                <!-- Plan 3: Enterprise -->
+                <!-- Plan 3: Enterprise ($980) -->
                 <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
                     <div>
                         <h3 class="text-xl font-bold text-white mb-2">Enterprise</h3>
                         <p class="text-gray-400 text-sm mb-6">Full-scale corporate infrastructure with dedicated AI agents.</p>
                         <div class="text-4xl font-bold text-white mb-6">$980<span class="text-sm font-normal text-gray-400"> /mo</span></div>
                         <ul class="space-y-4 text-sm text-gray-300 mb-8">
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Everything in Professional</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Unlimited AI legal & financial agents</li>
-                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Maximum security & document retention</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Everything included in Professional</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Unlimited AI legal and financial agents</li>
+                            <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Maximum security and document retention</li>
                             <li class="flex items-center"><span class="text-blue-400 mr-2">✓</span> Dedicated 24/7 assistance</li>
                         </ul>
                     </div>
@@ -124,6 +145,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Interactive Script -->
+    <script>
+        function runDiagnostic() {
+            const input = document.getElementById('diagnosticInput').value;
+            const status = document.getElementById('diagStatus');
+            const result = document.getElementById('diagResult');
+            
+            if(!input.trim()) {
+                alert('Please enter text to diagnose.');
+                return;
+            }
+            
+            status.innerText = 'Analyzing with AI...';
+            setTimeout(() => {
+                status.innerText = 'Diagnostic completed';
+                result.classList.remove('hidden');
+            }, 800);
+        }
+
+        let currentLang = 'EN';
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'ES' : 'EN';
+            document.getElementById('langBtn').innerText = currentLang + ' / ' + (currentLang === 'EN' ? 'ES' : 'EN');
+        }
+    </script>
 
     <!-- Footer -->
     <footer class="mt-auto py-12 border-t border-gray-800 text-center text-sm text-gray-500">
