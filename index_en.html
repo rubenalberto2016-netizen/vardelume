@@ -3,148 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VARDELUME | Legaltech Infrastructure & Cross-Border B2B</title>
-    <!-- Tailwind CSS -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Google Fonts: Fraunces & Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Nutry Mind — Health, Wellness, and Nutrition Digital Ecosystem</title>
+    <meta name="description" content="An evidence-based comprehensive platform to synchronize your nutrition, circadian wellness, and performance goals.">
+    <!-- Tailwind CSS CDN for modern and responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0B0F19;
-        }
-        .font-serif-legal {
-            font-family: 'Fraunces', serif;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #090a0f; color: #f3f4f6; }
     </style>
 </head>
-<body class="text-gray-200 antialiased min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col antialiased selection:bg-emerald-500 selection:text-white">
 
-    <!-- NAVBAR -->
-    <header class="border-b border-gray-800 bg-[#0E1424] px-6 py-4 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <div class="h-8 w-8 rounded bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white shadow-lg">V</div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-wider text-white font-serif-legal">VARDELUME</h1>
-                    <p class="text-xs text-gray-400 tracking-tight">Legaltech & B2B Cross-Border Infrastructure</p>
+    <!-- Top Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#090a0f]/80 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                    <span class="text-white font-bold text-xl">N</span>
                 </div>
+                <span class="text-xl font-bold tracking-tight text-white">Nutry <span class="text-emerald-400">Mind</span></span>
             </div>
-            <nav class="flex items-center gap-4">
-                <a href="index.html" class="text-xs px-3 py-1.5 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium transition">Spanish Version 🌐</a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#features" class="hover:text-emerald-400 transition-colors">Features</a>
+                <a href="#science" class="hover:text-emerald-400 transition-colors">Approach</a>
+                <a href="#plans" class="hover:text-emerald-400 transition-colors">Plans</a>
             </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="langToggle" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-gray-700 text-gray-300 hover:border-emerald-500 hover:text-emerald-400 transition-all">
+                    EN / ES
+                </button>
+                <a href="#plans" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-emerald-600 rounded-xl hover:bg-emerald-500 transition-all shadow-lg shadow-emerald-600/20">
+                    Get Started
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- LEFT COLUMN: ARCHITECTURE -->
-        <section class="lg:col-span-5 space-y-6">
-            <div class="space-y-3">
-                <span class="text-xs font-semibold tracking-widest text-blue-400 uppercase bg-blue-500/10 px-3 py-1 rounded">Launch Phase</span>
-                <h2 class="text-3xl sm:text-4xl font-semibold text-white font-serif-legal leading-tight">
-                    Cross-Border B2B Service Formalization
-                </h2>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Legal & Notarial Direction by <span class="text-white font-medium">Atty. Ruben Alberto Soria</span>. 
-                    Unifying Civil Law and Common Law systems into an automated digital framework that slashes operational delays from 14 days to under 10 minutes.
-                </p>
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.15),rgba(255,255,255,0))]"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-8 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span>Health & Performance Ecosystem</span>
             </div>
-
-            <!-- CARDS -->
-            <div class="space-y-4 pt-2">
-                <div class="p-4 rounded-xl bg-[#0E1424] border border-gray-800/60 flex gap-4">
-                    <div class="text-blue-400 mt-1">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-sm font-semibold text-white">Autonomous Intelligent Intake</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">Replaces endless orientation calls with structured interactive questionnaires and automated bilingual diagnostic parameters.</p>
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0E1424] border border-gray-800/60 flex gap-4">
-                    <div class="text-emerald-400 mt-1">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-sm font-semibold text-white">Advanced Contractual Shielding</h4>
-                        <p class="text-xs text-gray-400 mt-0.5">Automated drafting under Common Law frameworks (Delaware, Florida, UK) preventing literal translation anomalies.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- RIGHT COLUMN: INTERACTIVE PRICE CONSOLE -->
-        <section class="lg:col-span-7 bg-[#0E1424] border border-gray-800 rounded-2xl shadow-2xl p-6 lg:p-8 space-y-6">
-            <div class="border-b border-gray-800 pb-4">
-                <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    Corporate Subscription Framework
-                </h3>
-                <p class="text-xs text-gray-400 mt-1">Select a service tier to audit operational capabilities and simulate checkout payment gateway integrations.</p>
-            </div>
-
-            <!-- SIMULATION FORM -->
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Available Tiers (USD Settled)</label>
-                    <select id="subscriptionSelect" onchange="updateSubscriptionInfo()" class="w-full bg-[#161F37] border border-gray-700 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition cursor-pointer">
-                        <option value="starter" selected>Starter Plan — $190 USD / mo</option>
-                        <option value="professional">Professional Plan — $490 USD / mo</option>
-                        <option value="enterprise">Enterprise Tier — $980 USD / mo</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- SUBSCRIPTION PARAMETERS -->
-            <div class="bg-[#080B11] p-4 rounded-xl border border-gray-800/80 space-y-2 text-xs">
-                <div class="flex justify-between"><span class="text-gray-400">Monthly Base Overhead:</span> <span id="planCost" class="text-white font-semibold">$190 USD</span></div>
-                <div class="flex justify-between"><span class="text-gray-400">Bundled AI Infrastructure:</span> <span id="iaLimits" class="text-white font-medium">Standard Intake Assistant</span></div>
-                <div class="flex justify-between"><span class="text-gray-400">Operational Capability:</span> <span id="scopeConnection" class="text-white font-medium">Up to 5 automated agreements per month</span></div>
-                <div class="flex justify-between"><span class="text-gray-400">Gateway Link State (PayPal/Stripe):</span> <span id="tokenStatus" class="text-emerald-400 font-medium flex items-center gap-1"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Ready to Bind</span></div>
-            </div>
-
-            <!-- ACTION BUTTON -->
-            <button onclick="executeVerificationSimulation()" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold py-3 px-4 rounded-lg transition active:scale-[0.99] shadow-lg cursor-pointer">
-                Simulate Payment Gateway For Selected Plan
-            </button>
-
-            <!-- TERMINAL LOGS -->
-            <div class="space-y-1.5">
-                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider">Console Trace (Financial Operation Logs)</label>
-                <div id="terminal" class="bg-[#05070B] border border-gray-800 rounded-xl p-4 font-mono text-xs text-emerald-400 h-36 overflow-y-auto space-y-1 shadow-inner">
-                    <div class="text-gray-500">// Awaiting corporate payment gateway initialization hook...</div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="border-t border-gray-800 bg-[#080B11] py-6 px-6 text-center text-xs text-gray-500">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 VARDELUME. All rights reserved. Notarial Direction & Legaltech Infrastructure.</p>
-            <div class="flex gap-4">
-                <span class="text-gray-400">Currency Layer: <strong>USD Fixed</strong></span>
-                <span class="text-gray-400">Active Pipeline: <strong>PayPal SDK</strong></span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-8">
+                Synchronize your body, <br><span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">empower your mind.</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto font-normal leading-relaxed mb-12">
+                A comprehensive platform rooted in psycho-nutrition and circadian science to transform your habits, optimize energy, and build a sustainable lifestyle.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5">
+                <a href="#plans" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-gray-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 transition-all shadow-xl shadow-emerald-400/20 text-center">
+                    View Subscription Plans
+                </a>
+                <a href="#features" class="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-gray-900 border border-gray-800 rounded-xl hover:bg-gray-800 transition-all text-center">
+                    Explore the Method
+                </a>
             </div>
         </div>
+    </section>
+
+    <!-- Subscription Plans Section -->
+    <section id="plans" class="py-24 border-t border-gray-800/60 bg-[#0c0e14]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">Plans tailored for your transformation</h2>
+                <p class="text-gray-400 text-base">Select the ideal level of guidance to achieve your health and performance goals.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Plan 1 -->
+                <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Essential</h3>
+                        <p class="text-gray-400 text-sm mb-6">Access to fundamental guides and core nutritional resources.</p>
+                        <div class="text-4xl font-bold text-white mb-6">$29<span class="text-sm font-normal text-gray-400"> /mo</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Circadian nutrition guides</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Community access</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Monthly updates</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Subscribe</a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="bg-gradient-to-b from-emerald-950/40 to-[#12151c] rounded-3xl p-8 border-2 border-emerald-500/60 flex flex-col justify-between relative shadow-2xl shadow-emerald-950/50">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-emerald-500 text-gray-950 text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">
+                        Most Popular
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">Advanced</h3>
+                        <p class="text-gray-400 text-sm mb-6">Complete psycho-nutrition programs and habit optimization.</p>
+                        <div class="text-4xl font-bold text-white mb-6">$49<span class="text-sm font-normal text-gray-400"> /mo</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Everything in Essential</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Binge eating protocols</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Masterclasses & templates</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Priority support</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-center transition-all shadow-lg shadow-emerald-500/20">Subscribe</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-[#12151c] rounded-3xl p-8 border border-gray-800 flex flex-col justify-between transition-all hover:border-gray-700">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">All-Access Pro</h3>
+                        <p class="text-gray-400 text-sm mb-6">Complete end-to-end experience with personalized coaching.</p>
+                        <div class="text-4xl font-bold text-white mb-6">$99<span class="text-sm font-normal text-gray-400"> /mo</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Everything in Advanced</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Direct 1-on-1 consultations</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Custom tailored nutrition plan</li>
+                            <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> VIP access to new modules</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.paypal.com" target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center transition-all">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-12 border-t border-gray-800 text-center text-sm text-gray-500">
+        <p>&copy; 2026 Nutry Mind. All rights reserved.</p>
     </footer>
 
-    <script>
-        const planData = {
-            starter: {
-                cost: "$190 USD",
-                limits: "Standard Intake Assistant",
-                scope: "Up to 5 automated agreements per month"
-            },
-            professional: {
-                cost: "$490 USD",
-                limits: "Advanced Intake Assistant (Bilingual Core)",
-                scope: "Unlimited Corporate Structural Agreements"
-            },
-            enterprise: {
-                cost: "$980 USD",
-                limits: "Custom AI Prompts + Dedicated Notarial Oversight",
+</body>
+</html>
