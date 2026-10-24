@@ -517,6 +517,13 @@
       font-weight: 800;
     }
 
+    /* ASEGURAR QUE EL CONTENEDOR DE PAYPAL TENGA ESPACIO VISIBLE */
+    .paypal-container {
+      margin-top: auto;
+      width: 100%;
+      min-height: 45px;
+    }
+
     footer {
       border-top: 1px solid var(--surface-border);
       padding: 3rem 1.5rem;
@@ -810,9 +817,7 @@
           <li>Pasarela transaccional internacional integrada</li>
           <li>Soporte operativo prioritario</li>
         </ul>
-        <div style="margin-top: auto;">
-          <div id="paypal-button-container-P-4W3824526D003303LNLA4DVY"></div>
-        </div>
+        <div class="paypal-container" id="paypal-button-container-P-4W3824526D003303LNLA4DVY"></div>
       </div>
 
       <!-- PLAN 2: AGENCY GROWTH (RECOMENDADO) -->
@@ -828,9 +833,7 @@
           <li>Suscripciones recurrentes y conciliación automática</li>
           <li>Revisión notarial y compliance bilingüe</li>
         </ul>
-        <div style="margin-top: auto;">
-          <div id="paypal-button-container-P-5XS72719SM172170JNLA4JNI"></div>
-        </div>
+        <div class="paypal-container" id="paypal-button-container-P-5XS72719SM172170JNLA4JNI"></div>
       </div>
 
       <!-- PLAN 3: ENTERPRISE INFRA -->
@@ -844,9 +847,7 @@
           <li>Canal exclusivo de supervisión legal y notarial</li>
           <li>Cobro multi-moneda y contratos multi-país</li>
         </ul>
-        <div style="margin-top: auto;">
-          <div id="paypal-button-container-P-94M747035N773125ENLA4NDI"></div>
-        </div>
+        <div class="paypal-container" id="paypal-button-container-P-94M747035N773125ENLA4NDI"></div>
       </div>
     </div>
   </section>
@@ -859,7 +860,7 @@
     </p>
   </footer>
 
-  <!-- SDK DE PAYPAL (CARGADO UNA SOLA VEZ) -->
+  <!-- SDK DE PAYPAL -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAmx9Mi4mVTZnMJopAWwNo3oNurEi9NfHjHg5R3Y3kry9Jom34cHrStT2CwoskoQYrRfEcXxdfyiDneho&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 
   <!-- LÓGICA DE WIZARD Y BOTONES DE PAYPAL -->
@@ -867,3 +868,73 @@
     const sessionData = {
       servicio: 'Software & IT Services',
       jurisdiccion: 'Estados Unidos (Delaware / Florida - Common Law)',
+      pago: 'USD ($) Suscripción Mensual Recurrente'
+    };
+
+    function selectOption(key, val, el) {
+      sessionData[key] = val;
+      const parent = el.parentElement;
+      parent.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function goToStep(step) {
+      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+
+      const labels = [
+        'PASO 1 DE 4 · OPERACIÓN B2B',
+        'PASO 2 DE 4 · JURISDICCIÓN & FUERO',
+        'PASO 3 DE 4 · RÉGIMEN FINANCIERO',
+        'PASO 4 DE 4 · DICTAMEN DE CONTRATACIÓN'
+      ];
+      document.getElementById('step-label').innerText = labels[step - 1];
+
+      if(step === 4) {
+        document.getElementById('res-servicio').innerText = sessionData.servicio;
+        document.getElementById('res-jurisdiccion').innerText = sessionData.jurisdiccion;
+        document.getElementById('res-pago').innerText = sessionData.pago;
+        localStorage.setItem('vardelume_intake', JSON.stringify(sessionData));
+      }
+    }
+
+    // Inicialización segura de los botones de suscripción de PayPal
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof paypal !== 'undefined') {
+        // Botón Plan Starter B2B ($190)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-4W3824526D003303LNLA4DVY' });
+          },
+          onApprove: function(data, actions) {
+            alert('¡Suscripción exitosa! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-4W3824526D003303LNLA4DVY');
+
+        // Botón Plan Agency Growth ($490)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-5XS72719SM172170JNLA4JNI' });
+          },
+          onApprove: function(data, actions) {
+            alert('¡Suscripción exitosa! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-5XS72719SM172170JNLA4DVY');
+
+        // Botón Plan Enterprise Infra ($980)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-94M747035N773125ENLA4NDI' });
+          },
+          onApprove: function(data, actions) {
+            alert('¡Suscripción exitosa! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-94M747035N773125ENLA4NDI');
+      }
+    });
+  </script>
+</body>
+</html>
