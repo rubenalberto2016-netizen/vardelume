@@ -790,7 +790,7 @@
     </div>
   </section>
 
-  <!-- PLANES Y CHECKOUT -->
+  <!-- PLANES Y CHECKOUT PAYPAL -->
   <section class="section-wrap" id="planes">
     <div class="section-header">
       <span class="section-tag">Esquemas de Suscripción</span>
@@ -799,6 +799,7 @@
     </div>
 
     <div class="pricing-grid">
+      <!-- PLAN 1: STARTER B2B -->
       <div class="plan-card">
         <h4>Starter B2B</h4>
         <div class="plan-price">$190 <span>/ mes</span></div>
@@ -809,9 +810,12 @@
           <li>Pasarela transaccional internacional integrada</li>
           <li>Soporte operativo prioritario</li>
         </ul>
-        <button class="btn btn-secondary" onclick="iniciarCheckout('Starter B2B')">Activar Plan Starter</button>
+        <div style="margin-top: auto;">
+          <div id="paypal-button-container-P-4W3824526D003303LNLA4DVY"></div>
+        </div>
       </div>
 
+      <!-- PLAN 2: AGENCY GROWTH (RECOMENDADO) -->
       <div class="plan-card highlight">
         <div class="plan-badge">RECOMENDADO</div>
         <h4>Agency Growth</h4>
@@ -824,9 +828,12 @@
           <li>Suscripciones recurrentes y conciliación automática</li>
           <li>Revisión notarial y compliance bilingüe</li>
         </ul>
-        <button class="btn btn-primary" onclick="iniciarCheckout('Agency Growth')">Activar Agency Growth</button>
+        <div style="margin-top: auto;">
+          <div id="paypal-button-container-P-5XS72719SM172170JNLA4JNI"></div>
+        </div>
       </div>
 
+      <!-- PLAN 3: ENTERPRISE INFRA -->
       <div class="plan-card">
         <h4>Enterprise Infra</h4>
         <div class="plan-price">$980 <span>/ mes</span></div>
@@ -837,7 +844,9 @@
           <li>Canal exclusivo de supervisión legal y notarial</li>
           <li>Cobro multi-moneda y contratos multi-país</li>
         </ul>
-        <button class="btn btn-secondary" onclick="iniciarCheckout('Enterprise Infra')">Contactar Enterprise</button>
+        <div style="margin-top: auto;">
+          <div id="paypal-button-container-P-94M747035N773125ENLA4NDI"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -850,44 +859,11 @@
     </p>
   </footer>
 
-  <!-- LÓGICA DE FUNCIONAMIENTO -->
+  <!-- SDK DE PAYPAL (CARGADO UNA SOLA VEZ) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAmx9Mi4mVTZnMJopAWwNo3oNurEi9NfHjHg5R3Y3kry9Jom34cHrStT2CwoskoQYrRfEcXxdfyiDneho&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+  <!-- LÓGICA DE WIZARD Y BOTONES DE PAYPAL -->
   <script>
     const sessionData = {
       servicio: 'Software & IT Services',
       jurisdiccion: 'Estados Unidos (Delaware / Florida - Common Law)',
-      pago: 'USD ($) Suscripción Mensual Recurrente'
-    };
-
-    function selectOption(key, val, el) {
-      sessionData[key] = val;
-      const parent = el.parentElement;
-      parent.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
-      el.classList.add('selected');
-    }
-
-    function goToStep(step) {
-      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step-' + step).classList.add('active');
-
-      const labels = [
-        'PASO 1 DE 4 · OPERACIÓN B2B',
-        'PASO 2 DE 4 · JURISDICCIÓN & FUERO',
-        'PASO 3 DE 4 · RÉGIMEN FINANCIERO',
-        'PASO 4 DE 4 · DICTAMEN DE CONTRATACIÓN'
-      ];
-      document.getElementById('step-label').innerText = labels[step - 1];
-
-      if(step === 4) {
-        document.getElementById('res-servicio').innerText = sessionData.servicio;
-        document.getElementById('res-jurisdiccion').innerText = sessionData.jurisdiccion;
-        document.getElementById('res-pago').innerText = sessionData.pago;
-        localStorage.setItem('vardelume_intake', JSON.stringify(sessionData));
-      }
-    }
-
-    function iniciarCheckout(plan) {
-      alert('Iniciando pasarela de pago para el plan [' + plan + '].\n\nEl expediente de admisión ha sido sincronizado con éxito para la formalización del contrato.');
-    }
-  </script>
-</body>
-</html>
