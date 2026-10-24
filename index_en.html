@@ -517,6 +517,13 @@
       font-weight: 800;
     }
 
+    /* CONTENEDOR DE PAYPAL */
+    .paypal-container {
+      margin-top: auto;
+      width: 100%;
+      min-height: 45px;
+    }
+
     footer {
       border-top: 1px solid var(--surface-border);
       padding: 3rem 1.5rem;
@@ -790,7 +797,7 @@
     </div>
   </section>
 
-  <!-- PLANS & CHECKOUT -->
+  <!-- PLANS & CHECKOUT PAYPAL -->
   <section class="section-wrap" id="pricing">
     <div class="section-header">
       <span class="section-tag">Subscription Schemes</span>
@@ -799,6 +806,7 @@
     </div>
 
     <div class="pricing-grid">
+      <!-- PLAN 1: STARTER B2B -->
       <div class="plan-card">
         <h4>Starter B2B</h4>
         <div class="plan-price">$190 <span>/ month</span></div>
@@ -809,9 +817,10 @@
           <li>Integrated international transactional gateway</li>
           <li>Priority operational support</li>
         </ul>
-        <button class="btn btn-secondary" onclick="iniciarCheckout('Starter B2B')">Activate Starter Plan</button>
+        <div class="paypal-container" id="paypal-button-container-P-4W3824526D003303LNLA4DVY"></div>
       </div>
 
+      <!-- PLAN 2: AGENCY GROWTH (RECOMMENDED) -->
       <div class="plan-card highlight">
         <div class="plan-badge">RECOMMENDED</div>
         <h4>Agency Growth</h4>
@@ -824,9 +833,10 @@
           <li>Recurring subscriptions and automatic reconciliation</li>
           <li>Bilingual notarial and compliance review</li>
         </ul>
-        <button class="btn btn-primary" onclick="iniciarCheckout('Agency Growth')">Activate Agency Growth</button>
+        <div class="paypal-container" id="paypal-button-container-P-5XS72719SM172170JNLA4JNI"></div>
       </div>
 
+      <!-- PLAN 3: ENTERPRISE INFRA -->
       <div class="plan-card">
         <h4>Enterprise Infra</h4>
         <div class="plan-price">$980 <span>/ month</span></div>
@@ -837,7 +847,7 @@
           <li>Exclusive legal and notarial supervision channel</li>
           <li>Multi-currency and multi-country contracting</li>
         </ul>
-        <button class="btn btn-secondary" onclick="iniciarCheckout('Enterprise Infra')">Contact Enterprise</button>
+        <div class="paypal-container" id="paypal-button-container-P-94M747035N773125ENLA4NDI"></div>
       </div>
     </div>
   </section>
@@ -850,7 +860,10 @@
     </p>
   </footer>
 
-  <!-- LOGIC -->
+  <!-- SDK DE PAYPAL -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAmx9Mi4mVTZnMJopAWwNo3oNurEi9NfHjHg5R3Y3kry9Jom34cHrStT2CwoskoQYrRfEcXxdfyiDneho&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+  <!-- LOGIC & PAYPAL BUTTONS -->
   <script>
     const sessionData = {
       servicio: 'Software Development & IT Architecture',
@@ -885,9 +898,43 @@
       }
     }
 
-    function iniciarCheckout(plan) {
-      alert('Initiating payment gateway for [' + plan + '] plan.\n\nThe intake dossier has been successfully synchronized for contract formalization.');
-    }
+    // Inicialización segura de los botones de suscripción de PayPal
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof paypal !== 'undefined') {
+        // Botón Plan Starter B2B ($190)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-4W3824526D003303LNLA4DVY' });
+          },
+          onApprove: function(data, actions) {
+            alert('Subscription successful! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-4W3824526D003303LNLA4DVY');
+
+        // Botón Plan Agency Growth ($490)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-5XS72719SM172170JNLA4JNI' });
+          },
+          onApprove: function(data, actions) {
+            alert('Subscription successful! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-5XS72719SM172170JNLA4JNI');
+
+        // Botón Plan Enterprise Infra ($980)
+        paypal.Buttons({
+          style: { shape: 'rect', color: 'gold', layout: 'horizontal', label: 'subscribe' },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({ plan_id: 'P-94M747035N773125ENLA4NDI' });
+          },
+          onApprove: function(data, actions) {
+            alert('Subscription successful! ID: ' + data.subscriptionID);
+          }
+        }).render('#paypal-button-container-P-94M747035N773125ENLA4NDI');
+      }
+    });
   </script>
 </body>
 </html>
